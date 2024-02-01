@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#slider-one{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background-color: #d4f1f4;
+  flex-direction: column;
+}
+
+ .container{
+  position: relative;
+  width: 100%;
+  margin:auto;
+  overflow: hidden;
+}
+#slider-one .slides {
+  display: flex;
+  overflow: hidden;
+}
+
+#slider-one .container {
+  width: 100%;
+}
+
+#slider-one .card {
+  width: calc(100% / 3);
+  box-sizing: border-box;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: #FFF;
+  border: 1px solid #05445e;
+  position: relative;
+}
+
+#slider-one .container.card{
+  display: none;
+}
+
+#slider-one .card .image{
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 3px;
+  background: #05445e;
+}
+
+#slider-one .card .image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #FFF;
+}
+
+
+.card.displaySlide{
+  display: block;
+}
+
+#slider-one .card-bg::before{
+  content: '';
+  position: absolute;
+  height: 45%;
+  background: #189ab4;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+#slider-one .card .card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  z-index: 100;
+
+}
+
+#slider-one .card .media-icons{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#slider-one .card .media-icons i{
+  color: #FFF;
+  margin-top: 10px;
+  opacity: 0.6;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+#slider-one .card .media-icons i:hover{
+  opacity: 1;
+}
+
+#slider-one .card .name-profession{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  color: #05445e;
+}
+
+#slider-one .card .name-profession .name{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#slider-one .card .name-profession .profession{
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#slider-one .card .rating{
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+}
+
+#slider-one .card .rating i{
+  color: #189ab4;
+  margin: 0 2px;
+}
+
+#slider-one .card .button{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+#slider-one .card .button button{
+  background-color: #05445e;
+  border: none;
+  color: #FFF;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition:all .3s ease;
+  cursor:pointer;
+}
+
+#slider-one .card .button button:hover{
+  background-color: #297a9c;
+}
+
+#slider-one .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  align-items: center;
+  gap: 80px;
+}
+
+#slider-one button.prev,
+#slider-one button.next {
+  border:none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: #05445e;
+  color: #FFF;
+  border-radius: 50%;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: -22px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 3px;
+  background-color:#d4f1f4;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #05445e;
+}
+
+
+@media only screen and (max-width: 768px) {
+  #slider-one .card {
+    width: 100%; 
+    margin-right: 0; 
+  }
+
+  #slider-one .buttons {
+    gap: 20px; 
+  }
+
+  #slider-one button.prev,
+  #slider-one button.next {
+    width: 30px;
+    height: 30px;
+  }
+}
