@@ -71,3 +71,84 @@ function showPagination() {
 
 
 window.addEventListener('resize', adjustSlidesPerView);
+
+
+//Slider two
+
+const gallery = document.querySelectorAll('.gallery .gallery-image');
+let previewBox = document.querySelector('.preview-box');
+let previewImg = previewBox.querySelector('img');
+const closeIcon = previewBox.querySelector('.closeIcon');
+let currentImg = document.querySelector('.current-img');
+let totalImg = document.querySelector('.total-img');
+
+let currentIndex = 0; 
+
+window.onload = () => {
+  totalImg.textContent = gallery.length;
+
+  gallery.forEach((image, index) => {
+    image.addEventListener('click', () => {
+      currentIndex = index;
+      updatePreview();
+      showPreviewBox();
+      updateButtonsVisibility();
+    });
+  });
+
+  const nextBtn = document.querySelector('.nextSec');
+  const prevBtn = document.querySelector('.prevSec');
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < gallery.length - 1) {
+      currentIndex++;
+      updatePreview();
+    }
+    updateButtonsVisibility();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updatePreview();
+    }
+    updateButtonsVisibility();
+  });
+
+  closeIcon.addEventListener('click', () => {
+    hidePreviewBox();
+  });
+};
+
+function updatePreview() {
+  currentImg.textContent = currentIndex + 1;
+  let selectedImgUrl = gallery[currentIndex].querySelector('img').src;
+  previewImg.src = selectedImgUrl;
+}
+
+function showPreviewBox() {
+  previewBox.classList.add('show-previewBox');
+}
+
+function hidePreviewBox() {
+  previewBox.classList.remove('show-previewBox');
+}
+
+function updateButtonsVisibility() {
+  const nextBtn = document.querySelector('.nextSec');
+  const prevBtn = document.querySelector('.prevSec');
+
+  if (currentIndex === 0) {
+    prevBtn.style.display = 'none';
+  } else {
+    prevBtn.style.display = 'block';
+  }
+
+  if (currentIndex === gallery.length - 1) {
+    nextBtn.style.display = 'none';
+  } else {
+    nextBtn.style.display = 'block';
+  }
+}
+
+
