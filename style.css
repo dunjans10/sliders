@@ -477,6 +477,7 @@ img#main-image {
   height: 50px;
   margin-bottom: 10px;
   cursor: pointer;
+  object-fit: cover;
 }
 
 @media screen and (max-width:860px) {
